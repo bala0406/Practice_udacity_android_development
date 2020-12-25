@@ -36,9 +36,10 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     private var revenue = 0
     private var dessertsSold = 0
     private lateinit var dessertTimer: DessertTimer
-    private val KEY_REVENUE : String = "key_revenue"
-    private val KEY_SOLD : String = "key_sold"
-    private var KEY_SECONDS_COUNT : String = "key_seconds_count"
+    private val KEY_REVENUE: String = "key_revenue"
+    private val KEY_SOLD: String = "key_sold"
+    private var KEY_SECONDS_COUNT: String = "key_seconds_count"
+
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
 
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         dessertTimer = DessertTimer(this.lifecycle)
 
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             revenue = savedInstanceState.getInt(KEY_REVENUE)
             dessertsSold = savedInstanceState.getInt(KEY_SOLD)
             dessertTimer.secondsCount = savedInstanceState.getInt(KEY_SECONDS_COUNT)
@@ -188,9 +189,9 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(KEY_REVENUE,revenue)
-        outState.putInt(KEY_SOLD,dessertsSold)
-        outState.putInt(KEY_SECONDS_COUNT,dessertTimer.secondsCount)
+        outState.putInt(KEY_REVENUE, revenue)
+        outState.putInt(KEY_SOLD, dessertsSold)
+        outState.putInt(KEY_SECONDS_COUNT, dessertTimer.secondsCount)
         Timber.i("onSaveInstanceStateCalled")
     }
 }
